@@ -1,4 +1,4 @@
-package com.jtmonk.cobraj;
+package cobraj;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
