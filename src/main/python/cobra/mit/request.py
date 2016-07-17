@@ -14,8 +14,8 @@
 
 """The request module for the ACI Python SDK (cobra)."""
 
-from builtins import str     # pylint:disable=redefined-builtin
-from builtins import object  # pylint:disable=redefined-builtin
+# from builtins import str     # pylint:disable=redefined-builtin
+# from builtins import object  # pylint:disable=redefined-builtin
 
 import json
 from cobra.mit.naming import Dn

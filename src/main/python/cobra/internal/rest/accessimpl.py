@@ -18,8 +18,8 @@ The implementation of the access layer for the ACI Python SDK (cobra).
 """
 
 # These imports are for python2/3 compatibility
-from builtins import object  # pylint:disable=redefined-builtin
-from builtins import str     # pylint:disable=redefined-builtin
+# from builtins import object  # pylint:disable=redefined-builtin
+# from builtins import str     # pylint:disable=redefined-builtin
 
 import requests
 from cobra.mit.request import RestError

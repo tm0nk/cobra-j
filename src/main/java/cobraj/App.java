@@ -1,12 +1,6 @@
 package cobraj;
 
-import org.python.core.PyString;
 import org.python.util.PythonInterpreter;
-
-import cobraj.mit.access.MoDirectoryFactory;
-import cobraj.mit.access.MoDirectoryType;
-import cobraj.mit.session.LoginSessionFactory;
-import cobraj.mit.session.LoginSessionType;
 
 public class App {
 
@@ -35,5 +29,6 @@ public class App {
 //				new PyString("user-john")));
 //		System.out.println(dn.__str__());
 
+		interpreter.close();
 	}
 }

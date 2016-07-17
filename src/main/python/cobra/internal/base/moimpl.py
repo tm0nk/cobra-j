@@ -18,9 +18,9 @@ The internal implementation of managed objects.
 """
 
 from __future__ import unicode_literals
-from builtins import next    # pylint:disable=redefined-builtin
-from builtins import str     # pylint:disable=redefined-builtin
-from builtins import object  # pylint:disable=redefined-builtin
+# from builtins import next    # pylint:disable=redefined-builtin
+# from builtins import str     # pylint:disable=redefined-builtin
+# from builtins import object  # pylint:disable=redefined-builtin
 
 from cobra.mit.naming import Dn
 from cobra.mit.naming import Rn

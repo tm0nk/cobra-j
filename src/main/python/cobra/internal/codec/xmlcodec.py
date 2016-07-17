@@ -14,7 +14,7 @@
 
 """The ACI Python SDK json codec module."""
 
-from builtins import str  # pylint:disable=redefined-builtin
+# from builtins import str  # pylint:disable=redefined-builtin
 
 import xml.etree.cElementTree as ET
 import xml.dom.minidom
