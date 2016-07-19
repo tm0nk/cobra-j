@@ -1,6 +1,12 @@
 package cobraj;
 
+import org.python.core.PyString;
 import org.python.util.PythonInterpreter;
+
+import cobraj.mit.access.MoDirectoryFactory;
+import cobraj.mit.access.MoDirectoryType;
+import cobraj.mit.session.AbstractSessionType;
+import cobraj.mit.session.LoginSessionFactory;
 
 public class App {
 
@@ -8,19 +14,22 @@ public class App {
 		PythonInterpreter interpreter = new PythonInterpreter();
 		interpreter.exec("import sys");
 		interpreter.exec("print(sys.path)");
-		interpreter.exec("import cobra.mit.naming");
-		interpreter.exec("print(dir(cobra.mit.naming))");
+		interpreter.exec("import cobra.mit.session");
+		interpreter.exec("print(dir(cobra.mit.session))");
 
 		// This example comes from the Cisco APIC Python API Documentation
 		// (Release 0.1), section 6.2: Connecting and Authenticating
-//		LoginSessionType loginSession = LoginSessionFactory.create(
-//				new PyString("https://192.168.10.80"),
-//				new PyString("admin"),
-//				new PyString("mypassword"));
-//		MoDirectoryType moDir = MoDirectoryFactory.create(loginSession);
-//		moDir.login();
-//		// # Use the connected moDir queries and configuration...
-//		moDir.logout();
+		PyString apicUrl = new PyString("https://192.168.10.80");
+		LoginSessionFactory loginSessionFactory = new LoginSessionFactory();
+		AbstractSessionType loginSession = loginSessionFactory.create(
+				apicUrl,
+				new PyString("admin"),
+				new PyString("mypassword"));
+		MoDirectoryFactory moDirectoryFactory = new MoDirectoryFactory();
+		MoDirectoryType moDir = moDirectoryFactory.create(loginSession);
+		moDir.login();
+		// Use the connected moDir queries and configuration...
+		moDir.logout();
 
 //		DnFactory dnFactory = new DnFactory();
 //		DnType dn = dnFactory.create(Arrays.<PyObject> asList(

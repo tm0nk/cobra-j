@@ -14,6 +14,8 @@
 
 """The session module for the ACI Python SDK (cobra)."""
 
+from cobraj.mit.session import AbstractSessionType
+
 # from builtins import str     # pylint:disable=redefined-builtin
 # from builtins import object  # pylint:disable=redefined-builtin
 
@@ -40,7 +42,7 @@ from cobra.mit.request import (LoginRequest, ListDomainsRequest, RefreshRequest,
                                RestError)
 
 
-class AbstractSession(object):
+class AbstractSession(AbstractSessionType):
 
     """Abstract session class.
 

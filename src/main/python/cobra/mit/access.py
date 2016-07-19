@@ -18,6 +18,8 @@ This module ties together the session object and requests to allow a single
 interface by which requests are made.
 """
 
+from cobraj.mit.access import MoDirectoryType
+
 # from builtins import object  # pylint:disable=redefined-builtin
 from future.utils import viewitems
 
@@ -25,7 +27,7 @@ from cobra.mit.request import (DnQuery, ClassQuery, CommitError, QueryError,
                                RestError)
 
 
-class MoDirectory(object):
+class MoDirectory(MoDirectoryType):
 
     """Creates a connection to the APIC and the MIT.
 
