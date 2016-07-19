@@ -1,5 +1,6 @@
 package cobraj;
 
+import org.python.core.PyObject;
 import org.python.core.PyString;
 import org.python.util.PythonInterpreter;
 
@@ -14,8 +15,8 @@ public class App {
 		PythonInterpreter interpreter = new PythonInterpreter();
 		interpreter.exec("import sys");
 		interpreter.exec("print(sys.path)");
-		interpreter.exec("import cobra.mit.session");
-		interpreter.exec("print(dir(cobra.mit.session))");
+		interpreter.exec("import cobra.mit.access");
+		interpreter.exec("print(dir(cobra.mit.access))");
 
 		// This example comes from the Cisco APIC Python API Documentation
 		// (Release 0.1), section 6.2: Connecting and Authenticating
@@ -29,6 +30,8 @@ public class App {
 		MoDirectoryType moDir = moDirectoryFactory.create(loginSession);
 		moDir.login();
 		// Use the connected moDir queries and configuration...
+		PyObject tnCommonMo = moDir.lookupByDn(new PyString("uni/tn-common"));
+//		PyObject polUniMo = moDir.lookupByClass(new PyString("polUni"));
 		moDir.logout();
 
 //		DnFactory dnFactory = new DnFactory();
