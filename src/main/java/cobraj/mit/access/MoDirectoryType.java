@@ -12,4 +12,6 @@ public interface MoDirectoryType {
 	public PyObject lookupByDn(PyString dn);
 
 	public PyObject lookupByClass(PyString className);
+
+	public PyObject commit(PyObject cfgRequest);
 }

@@ -1,6 +1,8 @@
 # *************************************************************************
 # Copyright (c) 2013 Cisco Systems, Inc.  All rights reserved.
 # *************************************************************************
+from cobraj.mit.request import ConfigRequestType
+
 from cobra.mit.naming import Dn
 from .jsoncodec import toJSONStr
 from .xmlcodec import toXMLStr
@@ -717,7 +719,7 @@ class AliasRequest(AbstractRequest):
         return kwargs
 
 
-class ConfigRequest(AbstractRequest):
+class ConfigRequest(AbstractRequest, ConfigRequestType):
     """
     Class to handle configuration requests. The commit function uses this
     class.
