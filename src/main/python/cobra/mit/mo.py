@@ -1,10 +1,12 @@
 # *************************************************************************
 # Copyright (c) 2013 Cisco Systems, Inc.  All rights reserved.
 # *************************************************************************
+from cobraj.mit.mo import MoType
+
 from cobra.internal.base.moimpl import BaseMo
 
 
-class Mo(BaseMo):
+class Mo(BaseMo, MoType):
     """
     A class to create managed objects (MOs), which represent a physical or 
     logical entity with a set of configurations and properties.
