@@ -8,8 +8,6 @@ try:
 except ImportError:
     inlineSignature = False
 
-from cobraj.mit.session import AbstractSessionType
-
 # Always import these just for tests
 import os
 import tempfile
@@ -20,7 +18,7 @@ import time
 import math
 
 
-class AbstractSession(AbstractSessionType):
+class AbstractSession(object):
     XML_FORMAT, JSON_FORMAT = 0, 1
 
     def __init__(self, controllerUrl, secure, timeout, requestFormat):

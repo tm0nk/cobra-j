@@ -9,7 +9,6 @@ import cobraj.mit.access.MoDirectoryFactory;
 import cobraj.mit.access.MoDirectoryType;
 import cobraj.mit.request.ConfigRequestFactory;
 import cobraj.mit.request.ConfigRequestType;
-import cobraj.mit.session.AbstractSessionType;
 import cobraj.mit.session.LoginSessionFactory;
 import cobraj.model.fv.TenantFactory;
 
@@ -26,7 +25,7 @@ public class App {
 		// (Release 0.1), section 6.2: Connecting and Authenticating
 		PyString apicUrl = new PyString("https://192.168.10.80");
 		LoginSessionFactory loginSessionFactory = new LoginSessionFactory();
-		AbstractSessionType loginSession = loginSessionFactory.create(
+		PyObject loginSession = loginSessionFactory.create(
 				apicUrl,
 				new PyString("admin"),
 				new PyString("mypassword"));

@@ -13,9 +13,8 @@ public class LoginSessionFactory {
 		this.py_LoginSessionClass = interpreter.get("py_LoginSession");
 	}
 
-	public AbstractSessionType create(PyString controllerUrl, PyString user, PyString password) {
-		PyObject dnObject = py_LoginSessionClass.__call__(controllerUrl, user, password);
-		AbstractSessionType loginSession = (AbstractSessionType) dnObject.__tojava__(AbstractSessionType.class);
-		return loginSession;
+	public PyObject create(PyString controllerUrl, PyString user, PyString password) {
+		PyObject loginSessionObject = py_LoginSessionClass.__call__(controllerUrl, user, password);
+		return loginSessionObject;
 	}
 }

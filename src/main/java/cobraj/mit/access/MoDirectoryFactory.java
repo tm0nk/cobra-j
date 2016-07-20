@@ -1,10 +1,7 @@
 package cobraj.mit.access;
 
-import org.python.core.Py;
 import org.python.core.PyObject;
 import org.python.util.PythonInterpreter;
-
-import cobraj.mit.session.AbstractSessionType;
 
 public class MoDirectoryFactory {
 	private PyObject py_MoDirectoryClass;
@@ -15,9 +12,8 @@ public class MoDirectoryFactory {
 		this.py_MoDirectoryClass = interpreter.get("py_MoDirectory");
 	}
 
-	public MoDirectoryType create(AbstractSessionType session) {
-		PyObject pySession = Py.java2py(session);
-		PyObject dnObject = py_MoDirectoryClass.__call__(pySession);
+	public MoDirectoryType create(PyObject session) {
+		PyObject dnObject = py_MoDirectoryClass.__call__(session);
 		MoDirectoryType moDirectory = (MoDirectoryType) dnObject.__tojava__(MoDirectoryType.class);
 		return moDirectory;
 	}
