@@ -1,11 +1,14 @@
 # *************************************************************************
 # Copyright (c) 2013 Cisco Systems, Inc.  All rights reserved.
 # *************************************************************************
+from cobraj.mit.naming import DnType
+from cobraj.mit.naming import RnType
+
 from cobra.mit.meta import ClassLoader
 from collections import deque
 
 
-class Rn(object):
+class Rn(RnType):
     """
     The Rn class is the relative name (Rn) of the managed object (MO). 
     You can use Rn to convert between Rn of an MO its constituent naming values.
@@ -200,7 +203,7 @@ class Rn(object):
             return self.__meta.rnFormat
 
 
-class Dn(object):
+class Dn(DnType):
     """
     The distinguished name (Dn) uniquely identifies a managed object (MO).
     A Dn is an ordered list of relative names, such as:

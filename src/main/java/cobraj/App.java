@@ -8,6 +8,7 @@ import org.python.util.PythonInterpreter;
 import cobraj.mit.access.MoDirectoryFactory;
 import cobraj.mit.access.MoDirectoryType;
 import cobraj.mit.mo.MoType;
+import cobraj.mit.naming.DnType;
 import cobraj.mit.session.LoginSessionFactory;
 
 public class App {
@@ -35,9 +36,14 @@ public class App {
 		MoType tnMgmtMo = moDir.lookupByDn(new PyString("uni/tn-mgmt"));
 		MoType tnInfraMo = moDir.lookupByDn(new PyString("uni/tn-infra"));
 
-		PyInteger tnCommonHash = tnCommonMo.__hash__();
-		PyInteger tnMgmtHash = tnMgmtMo.__hash__();
-		PyInteger tnInfraHash = tnInfraMo.__hash__();
+		DnType tnCommonDn = tnCommonMo._dn();
+		DnType tnMgmtDn = tnMgmtMo._dn();
+		DnType tnInfraDn = tnInfraMo._dn();
+
+		System.out.println(tnCommonDn.__str__());
+		System.out.println(tnMgmtDn.__str__());
+		System.out.println(tnInfraDn.__str__());
+
 //		TenantFactory tenantFactory = new TenantFactory();
 //		PyObject fvTenantMo = tenantFactory.create(uniMo, new PyString("tomonkJython"));
 //		ConfigRequestFactory configRequestFactory = new ConfigRequestFactory();
@@ -46,13 +52,6 @@ public class App {
 //		PyObject response = moDir.commit(Py.java2py(cfgRequest));
 //		PyObject polUniMo = moDir.lookupByClass(new PyString("polUni"));
 		moDir.logout();
-
-//		DnFactory dnFactory = new DnFactory();
-//		DnType dn = dnFactory.create(Arrays.<PyObject> asList(
-//				new PyString("uni"),
-//				new PyString("userext"),
-//				new PyString("user-john")));
-//		System.out.println(dn.__str__());
 
 		interpreter.close();
 	}
